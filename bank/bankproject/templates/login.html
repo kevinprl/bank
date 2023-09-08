@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+    <head>
+      <meta charset="utf-8">
+                <!---nav bar --->
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                      <title> Login </title>
+                      <!---Custom Css File!--->
+                      <link rel="stylesheet" href="{% static 'nav_style/style.css' %}">
+                <!---nav bar --->
+      <title>Login Form</title>
+      <link rel="stylesheet" href="{% static 'login_style/style.css' %}">
+    </head>
+   <body>
+            <!---nav bar --->
+                <div class="container">
+                    <nav>
+                      <ul>
+                        <li><a style="text-decoration: none; color: inherit;" href="/" >Home</a></li>
+                        <li><a style="text-decoration: none; color: inherit;" href="/" >About</a></li>
+                        <li><a style="text-decoration: none; color: inherit;" href="/" >Services</a></li>
+                        <li><a style="text-decoration: none; color: inherit;" href="/" >Contact</a></li>
+
+                      </ul>
+                    </nav>
+                </div>
+            <!---nav bar --->
+      <div class="wrapper">
+         <div class="title">
+            Login Form
+         </div>
+         <form action="login" method="post">
+           {% csrf_token %}
+            <div class="field">
+               <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="field">
+               <input type="password"  name="password" placeholder="Password" required>
+            </div>
+            <div class="content">
+               <div class="checkbox">
+                  <input type="checkbox" id="remember-me">
+                  <label for="remember-me">Remember me</label>
+               </div>
+<!--               <div class="pass-link">-->
+<!--                  <a href="#">Forgot password?</a>-->
+<!--               </div>-->
+            </div>
+            <div class="field">
+               <input type="submit" value="Login">
+            </div>
+            <div class="signup-link">
+               Not a member? <a  href="register">Signup now</a>
+            </div>
+         </form>
+          {% for msg in messages %}
+            {{msg}}
+          {% endfor %}
+      </div>
+   </body>
+</html>
+
+
+
